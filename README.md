@@ -1,1 +1,2 @@
-# java-ship-it-main
+# java-ship-it
+Repository for homework project.
