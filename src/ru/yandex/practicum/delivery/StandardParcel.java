@@ -3,8 +3,10 @@ package ru.yandex.practicum.delivery;
 //стандартная
 public class StandardParcel extends Parcel {
 
+    protected static final int STANDARD_PARCEL_PRICE = 2;
+
     public StandardParcel(String description,
-                          double weight,
+                          int    weight,
                           String deliveryAddress,
                           int sendDay
     ) {
@@ -12,8 +14,8 @@ public class StandardParcel extends Parcel {
     }
 
     @Override
-    public double calculateDeliveryCost() {
-        return STANDARD_PARCEL_PRICE * weight;
+    protected int getBaseCost() {
+        return STANDARD_PARCEL_PRICE;
     }
 
 }

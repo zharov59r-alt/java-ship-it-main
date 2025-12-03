@@ -70,7 +70,7 @@ public class DeliveryApp {
         String description = scanner.nextLine();
 
         System.out.println("Введите вес:");
-        double weight = Double.parseDouble(scanner.nextLine());
+        int weight = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Введите адрес:");
         String deliveryAddress = scanner.nextLine();

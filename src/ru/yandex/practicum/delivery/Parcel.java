@@ -2,19 +2,15 @@ package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
 
-    protected static final int STANDARD_PARCEL_PRICE = 2;
-    protected static final int PERISHABLE_PARCEL_PRICE = 3;
-    protected static final int FRAGILE_PARCEL_PRICE = 4;
-
     protected String  description;
-    protected double  weight;
+    protected int  weight;
     protected String  deliveryAddress;
     protected int     sendDay;
 
-    Parcel (String description,
-            double weight,
-            String deliveryAddress,
-            int sendDay
+    public Parcel ( String  description,
+                    int     weight,
+                    String  deliveryAddress,
+                    int     sendDay
             ) {
         this.description = description;
         this.weight = weight;
@@ -23,7 +19,7 @@ public abstract class Parcel {
 
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
@@ -40,6 +36,10 @@ public abstract class Parcel {
 
     }
 
-    public abstract double calculateDeliveryCost();
+    protected abstract int getBaseCost();
+
+    public int calculateDeliveryCost() {
+        return weight * getBaseCost();
+    }
 
 }

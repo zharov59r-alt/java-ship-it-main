@@ -3,13 +3,15 @@ package ru.yandex.practicum.delivery;
 //скоропортящаяся
 public class PerishableParcel extends Parcel {
 
+    protected static final int PERISHABLE_PARCEL_PRICE = 3;
+
     protected int timeToLive;
 
-    public PerishableParcel(String description,
-                            double weight,
-                            String deliveryAddress,
-                            int sendDay,
-                            int timeToLive
+    public PerishableParcel(String  description,
+                            int     weight,
+                            String  deliveryAddress,
+                            int     sendDay,
+                            int     timeToLive
     ) {
         super(description, weight, deliveryAddress, sendDay);
         this.timeToLive = timeToLive;
@@ -20,8 +22,8 @@ public class PerishableParcel extends Parcel {
     }
 
     @Override
-    public double calculateDeliveryCost() {
-        return PERISHABLE_PARCEL_PRICE * weight;
+    protected int getBaseCost() {
+        return PERISHABLE_PARCEL_PRICE;
     }
 
 }
