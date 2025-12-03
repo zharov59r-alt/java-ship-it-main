@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParcelBox<T extends Parcel> {
 
-    public List<T> parcels = new ArrayList<>();
+    protected List<T> parcels = new ArrayList<>();
     protected double  weight;
 
     public ParcelBox(double weight) {
@@ -15,7 +15,7 @@ public class ParcelBox<T extends Parcel> {
     private double getCurrentWeight() {
         double sum = 0;
         for (Parcel parcel: parcels) {
-            sum += parcel.calculateDeliveryCost();
+            sum += parcel.getWeight();
         }
         return sum;
     }
@@ -28,10 +28,8 @@ public class ParcelBox<T extends Parcel> {
         }
     }
 
-    public void getAllParcels() {
-        for (Parcel parcel: parcels) {
-            System.out.println(parcel.getDescription());
-        }
+    public List<T> getAllParcels() {
+        return parcels;
 
     }
 

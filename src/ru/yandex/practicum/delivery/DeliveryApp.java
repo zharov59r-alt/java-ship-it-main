@@ -150,19 +150,28 @@ public class DeliveryApp {
 
         int choiceType = Integer.parseInt(scanner.nextLine());
 
+        List<Parcel> allParcels = null;
+
         switch (choiceType) {
             case 1:
-                standardParcelBox.getAllParcels();
+                allParcels = standardParcelBox.getAllParcels();
                 break;
             case 2:
-                perishableParcelBox.getAllParcels();
+                allParcels = perishableParcelBox.getAllParcels();
                 break;
             case 3:
-                fragileParcelBox.getAllParcels();
+                allParcels = fragileParcelBox.getAllParcels();
                 break;
             default:
                 System.out.println("Неверный выбор.");
         }
+
+        if (allParcels != null) {
+            for (Parcel parcel: allParcels) {
+                System.out.println(parcel.getDescription());
+            }
+        }
+
 
     }
 
